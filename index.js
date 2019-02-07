@@ -1,20 +1,65 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
+/****************
+ * dependencies *
+ ****************/
 
-const program = require('commander');
-const inquirer = require('inquirer');
+const fs = require('fs');
+var libxmljs = require("libxmljs");
+var questions = require('./data/questions');
+var program = require('commander');
+var inquirer = require('inquirer');
 
-/*
- *  https://itnext.io/making-cli-app-with-ease-using-commander-js-and-inquirer-js-f3bbd52977ac
- */
+/***********
+ * methods *
+ ***********/
 
-inquirer
-  .prompt([
-    /* Pass your questions in here */
-  ])
-  .then(answers => {
-    // Use user feedback for... whatever!!
-  });
+var isValidXML = function(text) {
+  try {
+    libxmljs.parseXml(text);
+  } catch (e) {
+    return false;
+  }
+
+  return true;
+};
+
+var startNewCast = ()=>{
+
+}
+
+var updateCast = function(podfeed) {
+
+}
+
+/********************
+ * application core *
+ ********************/
+
+program
+  .version('0.1.0')
+
+  .option('-u, --update [file]', 'Update a podcast feed. (Must be valid podcast RSS/Atom.)')
+  .parse(process.argv);
+
+
+if(program.update.length) {
+  updateCast(program.update)
+} else {
+  inquirer
+    .prompt(questions.intro)
+    .then(answers => {
+      if(answers.type == "new") {
+        // TODO: make sure the next thing returns a promise such that, at the end,
+        //       we can synchronously go to the final outro method
+        startNewCast();
+      } else {
+        inquirer
+          .prompt(questions.which)
+          .then(answers => {
+            updateCast(answers.which);
+          });
+      }
+    });
+
+}

@@ -22,4 +22,4 @@ Generation of the website surrounding the podcast feed and other such podcast me
 
 ## License
 
-This tool is licensed under GPLv3.0. As such, and considering that this tool will eventually be run on somebody's webserver, please observe section 15 ("Disclaimer of Warranty") and those following. And for Satan's sake, back up your media before running my rickety-ass Node utility on it.
+This tool is licensed under GPLv3.0. As such, and considering that this tool will eventually be run directly on somebody's webserver, please observe section 15 ("Disclaimer of Warranty") and those following. And for Satan's sake, back up your media before running my rickety-ass Node utility on it.

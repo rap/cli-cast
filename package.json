@@ -1,6 +1,6 @@
 {
   "name": "cli-cast",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "CLI podcast publishing utility. Quick, dirty, and compliant.",
   "main": "index.js",
   "scripts": {
@@ -16,13 +16,14 @@
     "node"
   ],
   "author": "Stephen Swift",
-  "license": "GPL-3.0-or-later",
+  "license": "GPL-3.0+",
   "bugs": {
     "url": "https://github.com/rap/cli-cast/issues"
   },
   "homepage": "https://github.com/rap/cli-cast#readme",
   "dependencies": {
     "commander": "^2.19.0",
-    "inquirer": "^6.2.2"
+    "inquirer": "^6.2.2",
+    "libxmljs": "^0.19.5"
   }
 }
